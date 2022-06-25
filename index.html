@@ -1,65 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercise 1</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <main class="main-content container">
-      <!-- Table -->
-      <div class="table-card card">
-        <table class="users-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Date de création</th>
-              <th>Etat</th>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Nom d'utilisateur</th>
-              <th>Matricule</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>123456789</td>
-              <td>01/06/2021</td>
-              <td>En validation</td>
-              <td>Taha</td>
-              <td>Mohamed</td>
-              <td>mtaha</td>
-              <td>2583</td>
-              <td><i class="fas fa-trash-alt" id="remove"></i></td>
-            </tr>
-            <tr>
-              <td>123456789</td>
-              <td>01/06/2021</td>
-              <td>En validation</td>
-              <td>Taha</td>
-              <td>Mohamed</td>
-              <td>mtaha</td>
-              <td>2583</td>
-              <td><i class="fas fa-trash-alt" id="remove"></i></td>
-            </tr>
-          </tbody>
-        </table>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <main class="main-content container">
+    <!-- Table -->
+    <div class="table-card card">
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date de création</th>
+            <th>Etat</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Nom d'utilisateur</th>
+            <th>Matricule</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>123456789</td>
+            <td>01/06/2021</td>
+            <td>En validation</td>
+            <td>Taha</td>
+            <td>Mohamed</td>
+            <td>mtaha</td>
+            <td>2583</td>
+            <td><i class="fas fa-trash-alt" id="remove"></i></td>
+          </tr>
+          <tr>
+            <td>123456789</td>
+            <td>01/06/2021</td>
+            <td>En validation</td>
+            <td>Taha</td>
+            <td>Mohamed</td>
+            <td>mtaha</td>
+            <td>2583</td>
+            <td><i class="fas fa-trash-alt" id="remove"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Card -->
+    <div class="card add-user-card">
+      <button class="button">Ajouter utilisateur</button>
+    </div>
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal-content card">
+        <h2 class="modal-heading">Ajouter utilisateur</h2>
+
+
+        <form class="modal-form">
+
+
+          <div class="row">
+            <div class="col">
+              <div class="form-control">
+                <label for="first-name" class="form-label">Nom</label>
+                <input id="first-name" type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-control">
+                <label for="last-name" class="form-label">Prénom</label>
+                <input id="last-name" type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-control">
+                <label for="status" class="form-label">Etat</label>
+                <input id="status" type="text" class="form-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row row-middle">
+            <div class="col">
+              <div class="form-control">
+                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <input id="username" type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-control">
+                <label for="creationDate" class="form-label">Date de création</label>
+                <input id="creationDate" type="text" class="form-input" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-control">
+                <label for="registration-number" class="form-label">Matricule</label>
+                <input id="registration-number" type="text" class="form-input" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row button-row">
+            <button class="button">Enregistrer</button>
+          </div>
+
+        </form>
       </div>
-      <!-- Card -->
-      <div class="card add-user-card">
-        <button class="button">Ajouter utilisateur</button>
-      </div>
-    </main>
-    <script src="./js/main.js"></script>
-  </body>
+    </div>
+
+  </main>
+  <script src="./js/main.js"></script>
+</body>
+
 </html>
