@@ -16,8 +16,48 @@
   </head>
   <body>
     <main class="main-content container">
-      <div class="card">
-        <h1>Card</h1>
+      <!-- Table -->
+      <div class="table-card card">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date de création</th>
+              <th>Etat</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Nom d'utilisateur</th>
+              <th>Matricule</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>123456789</td>
+              <td>01/06/2021</td>
+              <td>En validation</td>
+              <td>Taha</td>
+              <td>Mohamed</td>
+              <td>mtaha</td>
+              <td>2583</td>
+              <td><i class="fas fa-trash-alt" id="remove"></i></td>
+            </tr>
+            <tr>
+              <td>123456789</td>
+              <td>01/06/2021</td>
+              <td>En validation</td>
+              <td>Taha</td>
+              <td>Mohamed</td>
+              <td>mtaha</td>
+              <td>2583</td>
+              <td><i class="fas fa-trash-alt" id="remove"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Card -->
+      <div class="card add-user-card">
+        <button class="button">Ajouter utilisateur</button>
       </div>
     </main>
     <script src="./js/main.js"></script>
