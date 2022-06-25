@@ -34,24 +34,32 @@ const modal = document.querySelector(".modal");
 const addUserBtn = document.querySelector(".add-user-card .button");
 const modalOverlay = document.querySelector(".modal-overlay");
 
-addUserBtn.addEventListener("click", (event) => {
+const openModal = () => {
   modal.classList.add("show");
   modalOverlay.classList.add("show");
+};
+
+const closeModal = () => {
+  modal.classList.remove("show");
+  modalOverlay.classList.remove("show");
+};
+
+addUserBtn.addEventListener("click", (event) => {
+  openModal();
 });
 
 modalOverlay.addEventListener("click", (event) => {
-  modal.classList.remove("show");
-  modalOverlay.classList.remove("show");
+  closeModal();
 });
 
 //Add & delete & show users
 
-const usersList = document.querySelector("table.users-table > tbody");
-console.log(usersList);
-
+/* show users  */
 const showUsers = (users) => {
   const usersList = document.querySelector("table.users-table > tbody");
-
+  //reset the users table
+  usersList.innerHTML = "";
+  //show trhe users
   users.forEach((user) => {
     usersList.innerHTML += /*html*/ `
           <tr>
@@ -84,3 +92,39 @@ const showUsers = (users) => {
 document.addEventListener("DOMContentLoaded", () => {
   showUsers(users);
 });
+
+/* Grabbing the inputs fields from the document    */
+const firstName = document.querySelector("#first-name");
+const lastName = document.querySelector("#last-name");
+const statusInput = document.querySelector("#status");
+const username = document.querySelector("#username");
+const creationDate = document.querySelector("#creationDate");
+const registrationNumber = document.querySelector("#registration-number");
+const form = document.querySelector(".modal-form");
+
+/* add */
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  //create new user
+  const newUser = {
+    id: Math.random().toString(10).slice(9),
+    createdDate: new Date(creationDate.value),
+    status: statusInput.value,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    userName: username.value,
+    registrationNumber: registrationNumber.value,
+  };
+
+  //add user to the users list
+  const newUsers = [...users, newUser];
+
+  //show users
+  showUsers(newUsers);
+
+  //close the modal
+  closeModal();
+});
+
+/* delete */
