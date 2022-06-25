@@ -61,7 +61,7 @@ const showUsers = (users) => {
   usersList.innerHTML = "";
   //show trhe users
   users.forEach((user) => {
-    usersList.innerHTML += /*html*/ `
+    usersList.innerHTML += `
           <tr>
             <td>${user.id}</td>
             <td>${new Date(user.createdDate).toLocaleDateString()}</td>
@@ -82,7 +82,11 @@ const showUsers = (users) => {
             <td>${user.lastName}</td>
             <td>${user.userName}</td>
             <td>${user.registrationNumber}</td>
-            <td><i class="fas fa-trash-alt" id="remove"></i></td>
+            <td>
+             <i class="fas fa-trash-alt" id="remove" onclick="removeUser(${
+               user.id
+             })"></i>
+            </td>
           </tr>
     
         `;
@@ -102,6 +106,17 @@ const creationDate = document.querySelector("#creationDate");
 const registrationNumber = document.querySelector("#registration-number");
 const form = document.querySelector(".modal-form");
 
+/* result form  */
+
+const resetFields = () => {
+  firstName.value = "";
+  lastName.value = "";
+  statusInput.value = "";
+  username.value = "";
+  creationDate.value = "";
+  registrationNumber.value = "";
+};
+
 /* add */
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -120,11 +135,25 @@ form.addEventListener("submit", (event) => {
   //add user to the users list
   const newUsers = [...users, newUser];
 
+  //reset fiedls
+  resetFields();
+
   //show users
   showUsers(newUsers);
+
+  //set newUsers to users
+  users = [...newUsers];
 
   //close the modal
   closeModal();
 });
 
 /* delete */
+const removeUser = (id) => {
+  //remove the user list
+  let newUsers = [...users.filter((user) => user.id !== id.toString())];
+  //show users
+  showUsers(newUsers);
+  //set newUsers to users
+  users = [...newUsers];
+};
