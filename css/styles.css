@@ -18,7 +18,12 @@
     --gray: rgb(210, 204, 204);
     --dark-gray: rgb(91, 90, 90);
     --button-color: #fcaa1b;
-    --button-active: #FDB64D
+    --button-active: #FDB64D;
+    --modal: rgba(132, 131, 131, 0.79);
+    --white: #fff;
+    --status-valide: #5BE881;
+    --status-rejected: #FF0000;
+    --status-on-validation: #FDB64D;
 }
 
 
@@ -128,8 +133,40 @@ i#remove {
 }
 
 /* modal */
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-overlay {
+    background-color: var(--modal);
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    position: fixed;
+    z-index: -1;
+    display: none;
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
 .modal-content {
-    padding: 1rem 2rem;
+    padding: 1.4rem 2rem 1rem;
+    background-color: var(--white);
+    width: 90%;
+
 }
 
 .row {
@@ -185,4 +222,31 @@ i#remove {
 
 .button-row {
     justify-content: flex-end;
+}
+
+/* status colors */
+.status {
+    padding: .4rem .4rem;
+    color: var(--white);
+    font-size: .7rem;
+    border-radius: .4rem;
+    -webkit-border-radius: .4rem;
+    -moz-border-radius: .4rem;
+    -ms-border-radius: .4rem;
+    -o-border-radius: .4rem;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+.valide {
+    background-color: var(--status-valide);
+}
+
+.rejected {
+    background-color: var(--status-rejected);
+}
+
+.on-validation {
+    background-color: var(--status-on-validation);
 }
